@@ -1,0 +1,70 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  padding: 20px;
+}
+.main{
+    width:800px;
+    height: 450px;
+    padding: 20px;
+    background-color: #eee;
+    border: 1px solid #999;
+}
+.left{
+  padding: 20px;
+  background-color: #ffffff;
+  width: 160px;
+  height: 80px;
+  border: 1px solid #999;
+  float: left;
+}
+.left .logo,.right .logo{
+  background-color: #eee;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #999;
+  -webkit-box-shadow: 0 0 2px #999;
+  box-shadow: 0 0 2px #999;
+  float: left;
+}
+.left .logo .logo-p,.right .logo .logo-p {
+  padding: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  word-break: keep-all;
+  margin-left: -10px;
+  margin-top: 10px;
+}
+.left .name{
+  right: -20px;
+  position: relative;
+  font-weight: bold;
+  font-size: 14px;
+}
+.right{
+  float: right;
+  width: 80px;
+  height: 390px;
+  background-color: #ffffff;
+  border: 1px solid #999;
+  padding: 20px;
+}
+.middle{
+  height: 360px;
+  border: 1px solid #999;
+  background: #ffffff;
+  margin: 0 140px 0 220px;
+  padding: 20px;
+}
+.middle p{
+  font-size: 12px;
+  margin-bottom: 10px;
+  line-height: 14px;
+  font-weight: 600;
+}
+.right .logo{
+  margin-bottom: 20px;
+}
