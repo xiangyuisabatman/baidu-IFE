@@ -37,4 +37,4 @@
 ====
 <br>
     实现四分之一圆我是用正方形加border-radius:100%;实现圆，然后固定在父类坐上和右下角，在给父类加overflow:hidden;让超出父类的隐藏，只显示四分之一圆。
-[示例图](http://7xrp04.com1.z0.glb.clouddn.com/task_1_2_1.jpg)
+[示例图](http://7xrp04.com1.z0.glb.clouddn.com/task_1_41.jpg)
