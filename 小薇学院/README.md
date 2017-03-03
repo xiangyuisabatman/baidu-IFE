@@ -2,14 +2,14 @@
 ====
 <br>
     任务一是基础：主要巩固熟悉一下常用标签。
-[示例图](http://7xrp04.com1.z0.glb.clouddn.com/task_1_1_1.jpg)
+[示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index1.html)
 
 任务二<br>在步骤一的代码基础上增加CSS样式代码的编写）
 ====
 <br>
     任务二是在任务一的基础上添加样式，这是主要是练习css的基本语法定位。<br>
     这是地方在做最后表单对齐的时候遇到了点麻烦，因为之前没有接触过表单对齐，然后又通过学习表单方面的知识，学习到将表单放入table中，是一种简单的解决方法。
-[示例图](http://7xrp04.com1.z0.glb.clouddn.com/task_1_2_1.jpg)
+[示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index2.html)
 
 任务三<br>左右两栏宽度固定，中间一栏根据父元素宽度填充满，最外面的框应理解为浏览器。
 ====
@@ -31,10 +31,10 @@
     .left{ left: 0; background-color: #080808;}
     .middle{ margin: 0 200px; height: 300px;background-color: blue;}`
 
-[示例图](http://7xrp04.com1.z0.glb.clouddn.com/task_1_3_1.jpg)
+[示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index3.html)
 
 任务四<br>灰色元素水平垂直居中，有两个四分之一圆位于其左上角和右下角。
 ====
 <br>
     实现四分之一圆我是用正方形加border-radius:100%;实现圆，然后固定在父类坐上和右下角，在给父类加overflow:hidden;让超出父类的隐藏，只显示四分之一圆。
-[示例图](http://7xrp04.com1.z0.glb.clouddn.com/task_1_4_1.jpg)
+[示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index4.html)
