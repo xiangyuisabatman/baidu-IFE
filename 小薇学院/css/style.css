@@ -112,10 +112,6 @@ background: #333333;
 border-left: 1px solid gray;
 border-top: 1px solid gray;
 }
-.main .ttt{
-  width: 100%;
-  height:
-}
 .main .content .slider span{
   font-size: 18px;
   font-weight: bold;
@@ -154,8 +150,15 @@ border-top: 1px solid gray;
   color: white;
   height: 50px;
   font-size: 12px;
+  width: 100%;
 }
 #footer p{
 text-align: center;
 padding: 15px 5px;
+}
+
+
+.slider-bar{
+  position: relative;
+  width: 200px;
 }
