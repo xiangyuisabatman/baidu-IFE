@@ -199,3 +199,8 @@ body{
   text-align: center;
   padding: 15px 5px;
   }
+
+
+  .table1 tr:nth-last-child(1){
+    background-color: #ccc;
+  }
