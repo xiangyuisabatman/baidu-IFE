@@ -38,3 +38,14 @@
 <br>
     实现四分之一圆我是用正方形加border-radius:100%;实现圆，然后固定在父类坐上和右下角，在给父类加overflow:hidden;让超出父类的隐藏，只显示四分之一圆。
 [示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index4.html)
+
+任务五<br>在步骤一的代码基础上增加CSS样式代码的编写
+====
+<br>1.头部和底部的黑色区域始终是100%宽<br>
+2.页面右侧部分为固定宽度，左侧保持与浏览器窗口变化同步自适应变化<br>
+3.左侧的各个模块里面的内容宽度跟随左侧整体宽度同步自适应变化<br>
+4.10张图片需要永远都完整展现，所以会随着宽度变窄，从两行变成三行甚至更多，也有可能随着宽度变宽，变成一行<br>
+    
+    任务五：在任务二的基础上应用任务三的自适应宽度布局。<br>
+    
+[示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index1.html)
