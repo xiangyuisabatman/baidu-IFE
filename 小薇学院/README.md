@@ -48,4 +48,4 @@
     
     任务五：在任务二的基础上应用任务三的自适应宽度布局。<br>
     
-[示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index1.html)
+[示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index5.html)
