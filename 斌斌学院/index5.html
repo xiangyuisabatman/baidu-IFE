@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>IFE JavaScript Task 01</title>
+  <style media="screen">
+  #ul1{
+    width: 500px;
+    height: 200px;
+    position: relative;
+  }
+    #ul1 li{
+      list-style: none;
+      float: left;
+      width: 30px;
+      line-height: 30px;
+      background-color: red;
+      color: #fff;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" style="width:200px;" id="txt1">
+  <input type="button" id="leftin" value="左侧进" onclick="left_In()">
+  <input type="button" id="rightin" value="右侧进" onclick="right_In()">
+  <input type="button" id="leftout" value="左侧出" onclick="left_Out()">
+  <input type="button" id="rightout" value="右侧出" onclick="right_Out()">
+  <input type="button" id="busort" value="从小到大排序" onclick="bubbleSort()">
+
+  <ul id="ul1">
+    <!-- <li>10</li>
+    <li>3</li>
+    <li>7</li>
+    <li>12</li>
+    <li>11</li>
+    <li>30</li> -->
+  </ul>
+
+  <script type="text/javascript">
+    function left_In(){
+        var txt1=document.getElementById("txt1");//获取文本框
+        var oUl=document.getElementById("ul1");//获取ul
+        var cLi=document.createElement("li");//创建li
+        var number=txt1.value;
+        if(number>100 || number<10)
+        {
+          alert("请输入10-100");
+        }
+        else if(oUl.getElementsByTagName("li").length<=60)
+        {
+        cLi.style.height=number+"px";//用高度表示输入框输入的数值
+        oUl.insertBefore(cLi,oUl.childNodes[0]);//将创建出来的li插入到ul的第一个子节点之前
+        }
+        else
+        {
+          alert("最多限制添加60个数据");
+        }
+    }
+
+    function right_In(){
+      var txt1=document.getElementById("txt1");
+      var oUl=document.getElementById("ul1");
+      var cLi=document.createElement("li");
+      var number=txt1.value;
+      if(number>100||number<10)
+      {
+        alert("请输入10-100");
+      }
+      else if(oUl.getElementsByTagName("li").length<=60)
+      {
+      cLi.style.height=number+"px";
+      oUl.appendChild(cLi);//将创建出来的li添加到ul的最后一个子节点的后面
+      }
+      else{
+        alert("最多限制添加60个数据");
+      }
+    }
+
+    function left_Out(){
+      var oUl=document.getElementById("ul1");
+      var aLi=oUl.getElementsByTagName("li");//获取ul下的li
+      alert(aLi[0].innerHTML);
+      oUl.removeChild(aLi[0]);//将ul下的li的第一个从ul中删除
+
+          if(aLi.length==0)//如果li为零，弹出队列已空
+          {
+            alert("队列已空");
+          }
+    }
+
+    function right_Out(){
+      var oUl=document.getElementById("ul1");
+      var aLi=oUl.getElementsByTagName("li");
+      var liLength=aLi.length;
+      alert(aLi[liLength-1].innerHTML);
+      oUl.removeChild(aLi[liLength-1]);
+      if(aLi.length==0)
+      {
+        alert("队列已空");
+      }
+    }
+
+    function delLi(){
+      var oUl=document.getElementById("ul1");
+      var aLi=oUl.getElementsByTagName("li");
+      for(var i=0;i<aLi.length;i++)
+      {
+        if(aLi[i].tagName=="LI")
+        {
+        aLi[i].onclick=function(){
+        this.parentNode.removeChild(this);
+        }
+      }
+    }
+    }
+
+    function swap(items,firstIndex,secondIndex){
+      var temp=items[firstIndex];
+      items[firstIndex]=items[secondIndex];
+      items[secondIndex]=temp;
+    }
+
+    function bubbleSort(items){
+      var i ,j,stop;
+      var oUl=document.getElementById("ul1");
+      var aLi=oUl.getElementsByTagName("li");
+      var liLength=aLi.length;
+      var txt1=document.getElementById("txt1");
+      var number=txt1.value;
+      for(i=0;i<liLength;i++)
+      {
+        for(j=0,stop=liLength-i;j<stop;j++)
+        {
+          if(items[j]>items[j+1])
+          {
+            swap(items,j,j+1);
+          }
+        }
+      }
+      return false;
+    }
+    bubbleSort(items);
+    delLi();
+  </script>
+</body>
+</html>
