@@ -29,39 +29,72 @@
 </head>
 <body>
 <div>
-  名称： <input type="text" onblur="CheckName()"  id="input" required="required"> <input type="button" value="验证">
-  <p id="p">必填，长度为4~16个字符</p>
+  名称： <input type="text" onblur="CheckName()"  id="input" required="required"> <input type="button" value="验证" id="btn1">
+  <p id="p"></p>
 </div>
 <script type="text/javascript">
-  function CheckName(){
-    var Input=document.getElementById("input");
-    var oP=document.getElementById("p");
-    if(Input.value=="")
-    {
-      Input.style.borderColor="red";
-      p.style.color="red";
-      p.innerHTML="姓名不能为空";
-      return false;
-    }
-    else {
 
-        var word=Input.value;
-        var Reg=/^[0-9a-zA-Z_]{4,16}$/;
-        if(Reg.test(word))
+
+    function addLoadEvent(func){
+      var oldonload=window.onload;
+      if(typeof window.onload!="function")
+      {
+        window.onload=func;
+      }
+      else {
+        window.onload=function(){
+          oldonload();
+          func();
+        }
+      }
+    }
+
+    function fn1(){
+      var Input=document.getElementById("input");
+      var oBtn=document.getElementById("btn1");
+      var oP=document.getElementById("p");
+
+      function len(str){
+        var slen=0;
+
+        for(var i=0;i<str.length;i++)//获取字符串长度（汉字算两个字符，字幕数字算一个）
         {
-          Input.style.borderColor="#00ff16";
-          p.style.color="#00ff16";
-          p.innerHTML="名称正确";
+          var a=str.charAt(i);
+          if(a.match(/[^\x00-\xff]/gi)!=null)//[^\x00-\xff]/gi 其中[^\x00-\xff]表示非双字节字符，i表示忽略大小写，g表示全局匹配
+          {
+            slen +=2;
+          }
+          else {
+            slen+=1;
+          }
+        }
+        return slen;
+      }
+
+      function text(){
+        var arr=['必填，长度为4~16个字符','姓名不能为空','名称格式正确'];
+        if(Input.value=="")
+        {
+          p.innerHTML=arr[1];
+          p.style.color="red";
+          Input.style.borderColor="red";
+        }
+        else if (len(Input.value)<4 || len(Input.value)>16) {
+          p.innerHTML="长度为:"+len(Input.value)+","+arr[0];
+          p.style.color="gray";
+          Input.style.borderColor="#ccc";
         }
         else {
-          Input.style.borderColor="red";
-          p.style.color="red";
-          p.innerHTML="长度为4~16个字符";
+          p.innerHTML=arr[2];
+          p.style.color="#61fd4c";
+          Input.style.borderColor="#61fd4c";
         }
+      }
 
+      oBtn.addEventListener('click',text);
     }
 
-  }
+    addLoadEvent(fn1);
 
 
 </script>
