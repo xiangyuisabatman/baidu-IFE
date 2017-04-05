@@ -24,30 +24,44 @@
       ["西安",100],
     ];
 
+
+    var char = ['一', '二', '三', '四', '五', '六'];
     (function(){
       /*
         在注释下方编写代码
         遍历读取aqiData中各个城市的数据
         将空气质量指数大于60的城市显示到aqi-list的列表中
         */
+        var temp=[];//创建一个空数组
 
         for(var i=0;i<aqiDate.length;i++)
         {
           var number=aqiDate[i][1];//取出二维数组的第二列 数值
-          var city=aqiDate[i][0];//取出二维数组的第一列 城市
-          if(number>60)
+          // var city=aqiDate[i][0];//取出二维数组的第一列 城市
+          if(number>60) //如果城市的数值大于60
           {
-            var index=i+1;
-            // var lival="<li>"+"第"+(i+1)+"名:"+name+","+number+"</li>";
-            // var lisum=lisum+lival;
-
-            var oLi=document.createElement("li");//创建li
-            oLi.innerHTML="第"+(i+1)+"名:"+city+","+number;//li里的内容
-            var aqi_list=document.getElementById("aqi-list");//获取ul
-            aqi_list.appendChild(oLi);//将li添加到ul里面
+            temp.push(aqiDate[i]);//将大于60的这一数组 加到temp空数组里
+                                //   temp=[
+                                //   ["北京",90]，
+                                // ];
           }
 
         }
+
+        function descend(x,y){
+          return y[1]-x[1];
+        }
+        temp.sort(descend);//将temp数组里的数值按由高到低排序
+
+        for(var j=0;j<temp.length;j++){
+
+          var oLi=document.createElement("li");//创建li
+          oLi.innerHTML="第"+char[j]+"名:"+temp[j][0]+","+temp[j][1];//li里的内容
+          var aqi_list=document.getElementById("aqi-list");//获取ul
+          aqi_list.appendChild(oLi);//将li添加到ul里面
+        }
+
+
 
     })()
   </script>
