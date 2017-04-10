@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .container{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .container .table1{
+      position: relative;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <table class="table1">
+
+    <tr><td><p>名称 </p></td><td><input type="text" class="username" id="username"  autocomplete="off" onfocus="usernameinfo()" onblur="checkusername()" required="required"></td></tr>
+    <tr><td></td><td><b id="username2" style="color:#ccc;font-size:12px;"></b></td></tr>
+
+    <tr><td><p>密码 </p></td><td><input type="password" class="password" id="password" autocomplete="off" onfocus="passwordinfo()" onblur="checkpassword()"></td></tr>
+    <tr><td></td><td><b id="password2" style="color:#ccc;font-size:12px;"></b></td></tr>
+
+    <tr><td><p>密码确认 </p></td><td><input type="password" class="passwordconfirm" id="passwordconfirm" autocomplete="off" onfocus="passwordconfirminfo()" onblur="checkpasswordconfirm()"></td></tr>
+    <tr><td></td><td><b id="passwordconfirm2" style="color:#ccc;font-size:12px;"></b></td></tr>
+
+    <tr><td><p>邮箱 </p></td><td><input type="text" class="email" id="email" autocomplete="off" onfocus="emailinfo()" onblur="checkemail()"></td></tr>
+    <tr><td></td><td><b id="email2" style="color:#ccc;font-size:12px;"></b></td></tr>
+
+    <tr><td><p>手机 </p></td><td><input type="text" class="phone" id="phone" autocomplete="off" onfocus="phoneinfo()" onblur="checkphone()"></td></tr>
+    <tr><td></td><td><b id="phone2" style="color:#ccc;font-size:12px;"></b></td></tr>
+
+    </table>
+    <button type="button" name="button" id="btn1" style="width:100%;position:relative;">提交</button>
+  </div>
+
+  <script>
+    var arr=["必填,长度为4~16个字符","名称不能为空","名称可用","输入密码","密码不能为空","密码可用","再次输入相同密码","两次输入的密码不一致","请输入邮箱","邮箱格式错误","邮箱可用","请输入手机号码","请输入正确的手机号","手机号码可用"];
+    var index=0;//全局校验索引值，如果有错误index=1；无错误index=0；
+    function usernameinfo(){
+     var s=document.getElementById("username");
+     var b=document.getElementById("username2");
+
+     b.innerHTML=arr[0];
+    }
+
+
+    function checkusername(){
+      var s=document.getElementById("username");
+      var b=document.getElementById("username2");
+      var str=s.value;
+      var slen=0;
+
+      for(var i=0;i<str.length;i++)//获取字符串长度（汉字算两个字符，字幕数字算一个）
+      {
+        var a=str.charAt(i);
+        if(a.match(/[^\x00-\xff]/gi)!=null)//[^\x00-\xff]/gi 其中[^\x00-\xff]表示非双字节字符，i表示忽略大小写，g表示全局匹配
+        {
+          slen +=2;
+        }
+        else {
+          slen+=1;
+        }
+      }
+
+      if(s.value=="")
+      {
+        s.style.borderColor="red";
+        b.innerHTML=arr[1];
+        b.style.color="red";
+        index=1;
+      }
+      else if (slen<4 || slen>16) {
+        s.style.borderColor="red";
+        b.innerHTML=arr[0];
+        b.style.color="red";
+        index=1;
+      }
+      else {
+        s.style.borderColor="#24f131";
+        b.innerHTML=arr[2];
+        b.style.color="#24f131";
+        index=0;
+      }
+    }
+
+    function passwordinfo(){
+      var s=document.getElementById("password");
+      var b=document.getElementById("password2");
+
+      s.borderColor="blue";
+      b.innerHTML=arr[3]+","+arr[0];
+    }
+
+    function checkpassword(){
+      var s=document.getElementById("password");
+      var b=document.getElementById("password2");
+      var Reg=/^[A-Za-z0-9]{4,16}$/;
+
+      if(s.value=="")
+      {
+        s.style.borderColor="red";
+        b.innerHTML=arr[4];
+        b.style.color="red";
+        index=1;
+      }
+      else if (!Reg.test(s.value)) {
+        s.style.borderColor="red";
+        b.innerHTML=arr[0];
+        b.style.color="red";
+        index=1;
+      }
+      else {
+        s.style.borderColor="#24f131";
+        b.innerHTML=arr[5];
+        b.style.color="#24f131";
+        index=0;
+      }
+    }
+
+    function passwordconfirminfo(){
+      var s=document.getElementById("passwordconfirm");
+      var b=document.getElementById("passwordconfirm2");
+
+      b.innerHTML=arr[6];
+    }
+
+    function checkpasswordconfirm(){
+      var s=document.getElementById("password");
+      var b=document.getElementById("password2");
+      var s2=document.getElementById("passwordconfirm");
+      var b2=document.getElementById("passwordconfirm2");
+
+
+      if(s2.value=="")
+      {
+        s2.style.borderColor="red";
+        b2.innerHTML=arr[2];
+        b2.style.color="red";
+        index=1;
+      }
+      else if (!(s2.value==s.value)) {
+        s2.style.borderColor="red";
+        b2.innerHTML=arr[7];
+        b2.style.color="red";
+        index=1;
+      }
+      else {
+        s2.style.borderColor="#24f131";
+        b2.innerHTML=arr[5];
+        b2.style.color="#24f131";
+        index=0;
+      }
+    }
+
+    function emailinfo(){
+      var s=document.getElementById("email");
+      var b=document.getElementById("email2");
+
+      b.innerHTML=arr[8];
+    }
+
+    function checkemail(){
+      var s=document.getElementById("email");
+      var b=document.getElementById("email2");
+      var Reg=/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+
+      if(s.value=="" || !(Reg.test(s.value)))
+      {
+        s.style.borderColor="red";
+        b.innerHTML=arr[9];
+        b.style.color="red";
+        index=1;
+      }
+      else {
+        s.style.borderColor="#24f131";
+        b.innerHTML=arr[10];
+        b.style.color="#24f131";
+        index=0;
+      }
+    }
+
+    function phoneinfo(){
+      var s=document.getElementById("phone");
+      var b=document.getElementById("phone2");
+
+      b.innerHTML=arr[11];
+    }
+
+    function checkphone(){
+      var s=document.getElementById("phone");
+      var b=document.getElementById("phone2");
+      var Reg=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|17[7|8]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+
+      if(s.value=="" || !(Reg.test(s.value)))
+      {
+        s.style.borderColor="red";
+        b.innerHTML=arr[12];
+        b.style.color="red";
+        index=1;
+      }
+      else {
+        s.style.borderColor="#24f131";
+        b.innerHTML=arr[13];
+        b.style.color="#24f131";
+        index=0;
+      }
+
+    }
+
+    function buttoninfo(){
+      var btn1=document.getElementById("btn1");
+      btn1.onclick=function(){
+        if(index==1)
+        {
+          alert("输入有误");
+        }
+        else {
+          alert("输入正确");
+        }
+      }
+    }
+buttoninfo();
+  </script>
+</body>
+</html>
