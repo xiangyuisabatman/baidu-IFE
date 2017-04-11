@@ -49,3 +49,16 @@
     任务五：在任务二的基础上应用任务三的自适应宽度布局。<br>
     
 [示例图](http://htmlpreview.github.io/?https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/index5.html)
+
+任务六<br>通过HTML及CSS模拟报纸排版
+====
+<br>
+   根据示例图完成效果图<br>
+[示例图](https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/img/task_1_6_3.jpg)
+
+任务七<br>实现常见的技术产品官网的页面架构及样式布局
+====
+<br>
+   根据示例图完成效果图<br>
+[示例图](https://github.com/fenglinismydream/baidu-web/blob/master/%E5%B0%8F%E8%96%87%E5%AD%A6%E9%99%A2/img/task_1_7_1.psd)
+
