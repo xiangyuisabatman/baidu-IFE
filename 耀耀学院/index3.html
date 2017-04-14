@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+  *{
+    padding: 0;
+    margin: 0;
+  }
+    .container{
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .content{
+      width: 400px;
+      height: 200px;
+      position: relative;margin: 0 auto;
+    }
+  </style>
+  <script>
+
+  function check(){
+    var radios=document.getElementsByName("a");
+    var city=document.getElementById("city");
+    var mycompany=document.getElementById("mycompany");
+
+    for(var i=0;i<radios.length;i++)
+    {
+      if(radios[i].checked==true)
+      {
+        if(radios[i].value=="在校生")
+        {
+          city.style.display="block";
+          mycompany.style.display="none";
+        }
+        else {
+          city.style.display="none";
+          mycompany.style.display="block";
+        }
+      }
+    }
+  }
+
+
+
+
+
+  </script>
+
+</head>
+<body onLoad="init()">
+  <form action="<#ZC_BLOG_HOST#>" method="post" name="creator" enctype="multipart/form-data">
+  <script type="text/javascript">
+
+  var where = new Array(2);
+  function comefrom(loca,locacity) { this.loca = loca; this.locacity = locacity; }
+  where[0]= new comefrom("请选择省份名","请选择城市名");
+  where[1] = new comefrom("北京","|北京大学|清华大学");
+  where[2] = new comefrom("上海","|上海交通大学|上海戏剧学院");
+
+
+  function select() {
+  with(document.creator.province) { var loca2 = options[selectedIndex].value; }
+  for(i = 0;i < where.length;i ++) {
+  if (where[i].loca == loca2) {
+  loca3 = (where[i].locacity).split("|");
+  for(j = 0;j < loca3.length;j++) { with(document.creator.city) { length = loca3.length; options[j].text = loca3[j]; options[j].value = loca3[j]; var loca4=options[selectedIndex].value;}}
+  break;
+  }}
+  document.creator.newlocation.value=loca2+loca4;
+  }
+  function init() {
+  with(document.creator.province) {
+  length = where.length;
+  for(k=0;k<where.length;k++) { options[k].text = where[k].loca; options[k].value = where[k].loca; }
+  options[selectedIndex].text = where[0].loca; options[selectedIndex].value = where[0].loca;
+  }
+  with(document.creator.city) {
+  loca3 = (where[0].locacity).split("|");
+  length = loca3.length;
+  for(l=0;l<length;l++) { options[l].text = loca3[l]; options[l].value = loca3[l]; }
+  options[selectedIndex].text = loca3[0]; options[selectedIndex].value = loca3[0];
+  }}
+
+
+
+  </script>
+<div class="container">
+    <div class="content">
+
+  <input type="radio" name="a" value="在校生" onclick="check()" checked="checked">在校生
+  <input type="radio" name="a" value="非在校生" onclick="check()">非在校生
+
+  <div id="city" >
+    城市：<select name="province" onChange="select()"></select>
+    学校：<select  name="city" onChange="select()"></select>
+  </div>
+
+  <div id="mycompany" style="display:none;">
+    就业单位<input type="text" id="company">
+  </div>
+
+
+    </div>
+</div>
+
+</form>
+</body>
+</html>
