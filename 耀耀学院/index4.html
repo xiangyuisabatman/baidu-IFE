@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .content{
+      width: 310px;
+      height: 310px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -155px;
+      margin-top: -155px;
+      border: 1px solid #000;
+
+    }
+    .content div{
+      width: 30px;
+      height: 30px;
+      float: left;
+      border-right: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+    }
+    .container{
+      width: 300px;
+      height: 30px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -140px;
+      margin-top: -180px;
+    }
+    .container div{
+      float: left;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      position: relative;
+    }
+    .container2{
+      width: 30px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -182px;
+      margin-top: -150px;
+      text-align: center;
+    }
+    .container2 div{
+      width: 30px;
+      height: 30px;
+      position: relative;
+      line-height: 30px;
+    }
+    #start{
+      width: 30px;
+      height: 30px;
+      position: relative;
+      transition: all 0.5s;
+    }
+    input{
+      position: relative;
+      margin: 20px 20px 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+  </div>
+  <div class="container2">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    <div>10</div>
+  </div>
+
+
+    <div class="content">
+      <!-- //第一行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第二行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第三行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第四行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第五行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- 第六行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div>
+        <div id="start">
+          <div id="start-up" style="width:30px;height:10px;background-color:blue;border-bottom:1px solid blue;"></div>
+          <div id="start-down" style="width:30px;height:20px;background-color:red;"></div>
+        </div>
+
+
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第七行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第八行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第九行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+      <!-- //第十行 -->
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div style="border-right:0px;"></div>
+
+
+      <input type="text" id="txt1"> <input type="button" id="btn1" value="移动">
+
+      <p style="text-align:center;">GO：向蓝色边所面向的方向前进一格<br>
+  TUN LEF：向左转（逆时针旋转90度）
+TUN RIG：向右转（顺时针旋转90度）
+TUN BAC：向右转（顺时针旋转180度）</p>
+
+    </div>
+
+<script type="text/javascript">
+
+  function move(){
+    var txt1=document.getElementById("txt1");
+    var btn1=document.getElementById("btn1");
+    var box=document.getElementById("start");
+    var movetop=0;//top改变值
+    var moveleft=0;//left改变值
+    var angle=0;//角度改变值
+    var index=1;//方向指向索引值    1为上  2为右  3为下  4为左
+    var boxleft=box.style.left;
+
+
+    btn1.onclick=function(){
+      var str=txt1.value;
+      var ml=str.toUpperCase();//将输出的值都转换为大写字母
+
+      if(ml=="TUN LEF"){
+        if(index==1){index=4}//如果当前方向为上 左转后为左
+        else{index=(index-1)%4}
+        box.style.transform="rotate("+(angle-90)+"deg)";
+        angle=-90+angle;
+
+      }
+      if(ml=="TUN RIG"){
+        if(index==3){index=4}
+        else{index=(index+1)%4}
+        box.style.transform="rotate("+(angle+90)+"deg)";
+        angle=90+angle;
+
+      }
+      if(ml=="TUN BAC"){
+        if(index==2){index=4}
+        else{index=(index+2)%4}
+        box.style.transform="rotate("+(angle+180)+"deg)";
+        angle=180+angle;
+        console.log(index);
+      }
+      if(ml=="GO"){
+        if(index==1){movetop-=31;box.style.top=movetop+"px";if(parseInt(box.style.top)<-155){box.style.top=-155+"px";}}
+        if(index==2){moveleft+=31;box.style.left=moveleft+"px";if(parseInt(box.style.left)>124){box.style.left=124+"px";}}
+        if(index==3){movetop+=31;box.style.top=movetop+"px";if(parseInt(box.style.top)>124){box.style.top=124+"px";}}
+        if(index==4){moveleft-=31;box.style.left=moveleft+"px";if(parseInt(box.style.left)<-155){box.style.left=-155+"px";}}
+      }
+
+    }
+
+  }
+
+  move();
+</script>
+</body>
+</html>
