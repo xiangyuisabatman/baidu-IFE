@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+  *{
+    padding: 0;
+    margin: 0;
+  }
+    #btn1{
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -100px;
+      margin-top: -100px;
+      background-color: red;
+      color: #fff;
+      font-size: 14px;
+      border: 0;
+      z-index: 1;
+    }
+
+    .fc1{
+      width: 100%;
+      height: 100%;
+      background-color: #ccc;
+      z-index: 2;
+      display: none;
+    }
+    .fc2{
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+      background-color: blue;
+      border: 0;
+    }
+  </style>
+</head>
+<body style="height:2000px;">
+  <button type="button" name="button" id="btn1">点击我可以出现一个浮出层</button>
+  <div class="fc1" id="fc1">
+    <div class="fc2"></div>
+  </div>
+  <script type="text/javascript">
+    window.onload=function(){
+      var btn1=document.getElementById("btn1");
+      var fc1=document.getElementById("fc1");
+      btn1.onclick=function(){
+        fc1.style.display="block";
+        btn1.style.display="none";
+      }
+    }
+  </script>
+</body>
+</html>
