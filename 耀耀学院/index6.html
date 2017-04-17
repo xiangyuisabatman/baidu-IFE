@@ -6,59 +6,128 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style media="screen">
-  *{
-    padding: 0;
-    margin: 0;
-  }
-    #btn1{
-      width: 200px;
-      height: 200px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-left: -100px;
-      margin-top: -100px;
-      background-color: red;
-      color: #fff;
-      font-size: 14px;
-      border: 0;
-      z-index: 1;
-    }
-
-    .fc1{
-      width: 100%;
-      height: 100%;
-      background-color: #ccc;
-      z-index: 2;
-      display: none;
-    }
-    .fc2{
-      width: 300px;
-      height: 300px;
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      margin-left: -150px;
-      margin-top: -150px;
-      background-color: blue;
-      border: 0;
-    }
+  .overlay {
+display: none;
+position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  font-size: 13px;
+  z-index: 5;
+}
+.overlay-bg {
+position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  z-index: 1;
+}
+.overlay-content {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+  border: 1px solid red;
+  background-color: blue;
+  z-index: 4;
+  text-align: center;
+}
+#btn1{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  margin-left: -100px;
+  margin-top: -100px;
+  left: 50%;
+  top: 50%;
+}
   </style>
 </head>
-<body style="height:2000px;">
-  <button type="button" name="button" id="btn1">点击我可以出现一个浮出层</button>
-  <div class="fc1" id="fc1">
-    <div class="fc2"></div>
-  </div>
-  <script type="text/javascript">
-    window.onload=function(){
-      var btn1=document.getElementById("btn1");
-      var fc1=document.getElementById("fc1");
-      btn1.onclick=function(){
-        fc1.style.display="block";
-        btn1.style.display="none";
+<body>
+  <button type="button" name="button" id="btn1">123</button>
+  <div class="overlay" id="overlay">
+            <div class="overlay-bg" id="overlay-bg"></div>
+            <div class="overlay-content" id="div1">
+              这是一个浮出层<div class="close" id="close" style="right:0;position:absolute;width:30px;height:30px;top:0;background-color:red;">*****</div>
+
+            </div>
+          </div>
+  <script>
+      window.onload=function(){
+        var btn1=document.getElementById("btn1");
+        var overlay=document.getElementById("overlay");
+        var close=document.getElementById("close");
+        var overlay_bg=document.getElementById("overlay-bg");
+
+        btn1.onclick=function(){
+          overlay.style.display="block";
+        }
+
+        close.onclick=function(){
+          overlay.style.display="none";
+        }
+
+        overlay_bg.onclick=function(){
+          overlay.style.display="none";
+        }
+
+        drag();
+
       }
-    }
+
+      function drag(){
+        var div1=document.getElementById("div1");
+
+        var disX=0;
+        var disY=0;
+
+        div1.onmousedown=function(ev){
+          var oEvent=ev||event;
+
+          disX=oEvent.clientX-div1.offsetLeft;
+          disY=oEvent.clientY-div1.offsetTop;
+
+          document.onmousemove=function(ev){
+            var oEvent=ev||event;
+
+            var l=oEvent.clientX-disX;
+            var t=oEvent.clientY-disY;
+
+            if(l<0)
+            {
+              l=0;
+            }
+            else if (l>document.documentElement.clientWidth-div1.offsetWidth) {
+              l=document.documentElement.clientWidth-div1.offsetWidth;
+            }
+            if(t<0)
+            {
+              t=0;
+            }
+            else if (t>document.documentElement.clientHeight-div1.offsetHeight) {
+              t=document.documentElement.clientHeight-div1.offsetHeight;
+            }
+            div1.style.left=l+"px";
+            div1.style.top=t+"px";
+          }
+
+          document.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+          }
+          return false;
+        }
+        return false;
+      }
   </script>
 </body>
 </html>
