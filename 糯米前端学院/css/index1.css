@@ -1,0 +1,99 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.wrap{
+  width: 500px;
+  height: 250px;
+  position: relative;
+  margin: 200px auto;
+}
+img{
+  width: 500px;
+  height: 250px;
+}
+.wrap:hover img{
+  opacity: 0.5;
+}
+.wrap2{
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  height: 210px;
+  width: 420px;
+  visibility: hidden;
+}
+
+.wrap2::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 0;
+  border: 3px solid #fff;
+  border-width: 0 3px;
+  overflow: hidden;
+  box-sizing: border-box;
+  visibility: visible;
+  transition: all .8s;
+}
+
+.wrap2::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:0;
+  height:100%;
+  border:3px solid #fff;
+  border-width:3px 0;
+  overflow:hidden;
+  visibility:hidden;
+  transition:all .8s;
+}
+
+.wrap:hover .wrap2{
+  visibility: visible;
+}
+.wrap:hover .wrap2::before{
+  height:100%;
+  visibility:visible;
+  top:0;
+}
+
+.wrap:hover .wrap2::after{
+  width:100%;
+  visibility:visible;
+  left:0;
+}
+
+.title{
+  margin:60px 20px 20px 60px;
+  width: 85%;
+  background-image: -webkit-linear-gradient(left,#3498db,#d71345 25%,#3498db 50%,#f7acbc 75%,#3498db);
+  background-size: 200% 100%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: streamerGradient 4s infinite linear;
+}
+
+@keyframes streamerGradient {
+  from{background-position: 0% 0%;}
+  to{background-position: -100% 0%;}
+}
+
+.click{
+  width: 20%;
+  margin: 10px auto;
+  font-weight: bold;
+  animation: changeColor 4s infinite linear;
+}
+@keyframes changeColor {
+  10% {color:#ff6699;}
+  20% {color:#ffff00;}
+  30% {color:#ff6699;}
+  40% {color:#ffff00;}
+  60% {color:#ff6699;}
+  70% {color:#ffff00;}
+}
