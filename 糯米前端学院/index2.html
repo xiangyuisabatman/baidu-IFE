@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .container{
+      width: 110px;
+      height: 110px;
+      left: 50%;
+      top: 50%;
+      position: absolute;
+      margin-left: -55px;
+      margin-top: -55px;
+    }
+    .out{
+      width: 100px;
+      height: 100px;
+      position: relative;
+      border: 1px solid red;
+      border-top-color: transparent;
+      border-top-left-radius: 100px;
+      border-top-right-radius: 100px;
+      border-bottom-left-radius: 100px;
+      border-bottom-right-radius: 100px;
+      animation: outcircle 1s infinite linear;
+    }
+
+    @keyframes outcircle {
+      from{transform: rotate(0deg);}
+      to{transform: rotate(-360deg);}
+    }
+    .incircle3{
+      width: 0;
+      height: 0;
+      border-radius: 100px;
+      transform: rotate(45deg);
+      border: 25px solid #ae63e4;
+      border-right-color: #b9f;
+      border-top-color: #b9f;
+      position: absolute;
+      left: 25px;
+      top: 25px;
+    }
+    @keyframes incircleleft {
+      from{transform: rotate(45deg);}
+      25%{transform: rotate(-135deg);}
+      50%{transform: rotate(-135deg);}
+      75%{transform: rotate(-315deg);}
+      to{transform: rotate(-315deg);}
+    }
+    @keyframes incircleright {
+      from{transform: rotate(45deg);z-index: 6;}
+      25%{transform: rotate(-135deg);}
+      50%{transform: rotate(-135deg);z-index: 6;}
+      50.001%{transform: rotate(-135deg);z-index: 5;}
+      75%{transform: rotate(-315deg);z-index: 5;}
+      99.999%{transform: rotate(-315deg);z-index: 5;}
+      to{transform: rotate(-315deg);z-index: 6;}
+    }
+    .incircle{
+      width: 0;
+      height: 0;
+      border: 25px solid transparent;
+      border-radius: 100px;
+      position: absolute;
+      transform: rotate(45deg);
+    }
+    .incircle1{
+      border-left-color: #ae63e4;
+      border-bottom-color: #ae63e4;
+      animation: incircleleft 2s  linear infinite;
+      z-index: 6;
+      left: 25px;
+      top: 25px;
+    }
+    .incircle2{
+      border-bottom-color: #b9f;
+      border-left-color: #b9f;
+      animation: outcircle 2s  linear infinite;
+      z-index: 5;
+      animation-delay: 0.5s;
+      left: 25px;
+      top: 25px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="out">
+
+    </div>
+    <div class="incircle3"></div>
+    <div class="incircle1 incircle"></div>
+    <div class="incircle2 incircle"></div>
+  </div>
+</body>
+</html>
