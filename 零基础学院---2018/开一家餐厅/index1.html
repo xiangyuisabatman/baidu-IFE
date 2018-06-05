@@ -5,8 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <script src="./index1-es6.js" charset="utf-8"></script>
 </head>
 <body>
-  
+  <script type="text/javascript">
+    window.onload = function() {
+      var ifeRestaurant = new Restaurant({
+          money: 1000000,
+          sitNum: 20,
+          staffList: []
+      });
+      var newCook = new cooker("Tony", 10000);
+      ifeRestaurant.recruit(newCook);
+      console.log(ifeRestaurant.staffList)
+      ifeRestaurant.fire(newCook);
+      console.log(ifeRestaurant.staffList)
+    }
+  </script>
 </body>
 </html>

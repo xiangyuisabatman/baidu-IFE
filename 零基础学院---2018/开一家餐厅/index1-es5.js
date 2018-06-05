@@ -1,27 +1,32 @@
-function restaurant(money, sitNum, staffList) {
-  this.money = money
-  this.sitNum = sitNum
-  this.staffList = staffList
-  this.recruit = function () {
-
+function Restaurant(obj) {
+  this.money = obj.money
+  this.sitNum = obj.sitNum
+  this.staffList = obj.staffList
+  this.recruit = function (employess) {
+    this.staffList.push(employess)
   }
-  this.fire = function() {
-
+  this.fire = function(employess) {
+    let arr = this.staffList
+    for (let i = 0; i < arr.length; i++) {
+      if(employess === arr[i]){
+        this.staffList.splice(i,1)
+      }
+    }
   }
 }
-
-function staff(id, name, salary) {
-  this.id = id
+let id = 1
+function staff(name, salary) {
+  this.id = id++
   this.name = name
   this.salary = salary
   this.finishOnceWork = function() {
-
+    console.log("staff完成工作")
   }
 }
 
 function servicer(){
-  staff.call(this)
-  this.finishOnceWork = function() {
+  staff.call(this, name, salary)
+  this.finishOnceWork = function(o) {
     if (Object.prototype.toString.call(o)=='[object Array]') {
       alert('记录客人点菜')
     } else {
@@ -30,12 +35,13 @@ function servicer(){
   }
 }
 
-function cooker(){
-  staff.call(this)
-  this.finishOnceWork = function() {
-    alert('烹饪出菜品')
-  }
+function cooker(name, salary){
+  staff.call(this, name, salary)
 }
+
+cooker.prototype.finishOnceWork = function () {
+  alert('烹饪出菜品')
+};
 
 function customer() {
   this.order = function() {

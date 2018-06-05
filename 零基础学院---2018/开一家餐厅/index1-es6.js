@@ -1,25 +1,30 @@
-class restaurant{
-  constructor(money, sitNum, staffList){
-    this.money = money
-    this.sitNum = sitNum
-    this.staffList = staffList
+class Restaurant{
+  constructor(obj){
+    this.money = obj.money
+    this.sitNum = obj.sitNum
+    this.staffList = obj.staffList
   }
-  recruit() {
-
+  recruit(employess) {
+    this.staffList.push(employess)
   }
-  fire() {
-
+  fire(employess) {
+    let arr = this.staffList
+    for (let i = 0; i < arr.length; i++) {
+      if(employess === arr[i]){
+        this.staffList.splice(i,1)
+      }
+    }
   }
 }
-
+let id = 1
 class staff {
-  constructor(id, name, salary) {
-    this.id = id
+  constructor(name, salary) {
+    this.id = id++
     this.name = name
     this.salary = salary
   }
   finishOnceWork(){
-
+    console.log("staff完成工作")
   }
 }
 
